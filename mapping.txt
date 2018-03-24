@@ -1,0 +1,26 @@
+PUT /jira
+{
+ "mappings": {
+  "doc": {
+   "properties": {
+    "today": {"type":"date","ignore_malformed": true},
+    "key": {"type": "keyword"},
+    "assignee_name": {"type": "keyword"},
+    "assignee_key": {"type": "keyword"},
+    "status_name": {"type": "keyword"},
+    "aggregateprogress_progress": {"type": "long"},
+    "aggregateprogress_total": {"type": "long"},
+    "issuetype_name": {"type": "keyword"},
+    "project_key": {"type": "keyword"},
+    "project_name": {"type": "keyword"},
+    "summary": {"type": "text"},
+    "aggregatetimeoriginalestimate": {"type": "long"},
+    "aggregatetimeestimate": {"type": "long"},
+    "aggregatetimespent": {"type": "long"},
+    "labels": {"type":"text"},
+    "resolutiondate": {"type":"date", "ignore_malformed": true},
+    "epic_link": {"type":"keyword"}
+   }
+  }
+ }
+}
