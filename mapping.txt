@@ -1,9 +1,12 @@
 PUT /jira
 {
+ "settings": {
+    "index.mapping.ignore_malformed": true 
+ },
  "mappings": {
   "doc": {
    "properties": {
-    "today": {"type":"date","ignore_malformed": true},
+    "today": {"type":"date"},
     "key": {"type": "keyword"},
     "assignee_name": {"type": "keyword"},
     "assignee_key": {"type": "keyword"},
@@ -18,7 +21,7 @@ PUT /jira
     "aggregatetimeestimate": {"type": "long"},
     "aggregatetimespent": {"type": "long"},
     "labels": {"type":"text"},
-    "resolutiondate": {"type":"date", "ignore_malformed": true},
+    "resolutiondate": {"type":"keyword"},
     "epic_link": {"type":"keyword"}
    }
   }

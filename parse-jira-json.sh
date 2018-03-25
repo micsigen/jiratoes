@@ -8,12 +8,16 @@ fi
 
 SIZE_OF_ISSUES=`cat $1 | jq '.issues | length'`
 
+# _index:now | todate | tostring | .[0:10] | ("jira-"+.),
+# today: now | todate | tostring | .[0:10],
+
+echo "Parsing issues which size if $SIZE_OF_ISSUES started at $(date +%F_%R)."
 for (( i = 0; i < $SIZE_OF_ISSUES; i++ )); do
 	cat $1 | jq '.issues' | jq -c '.['$i'] | 
 	{
 		index:
 		{
-			_index:"jira",
+			_index:now | todate | tostring | .[0:10] | ("jira-"+.),
 			_id:.key
 		}
 	}'
@@ -38,4 +42,5 @@ for (( i = 0; i < $SIZE_OF_ISSUES; i++ )); do
 		epic_link: .fields.customfield_10006
 	}'
 done
+echo "Parsing issues finished at $(date +%F_%R)."
 
