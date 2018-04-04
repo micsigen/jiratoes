@@ -21,7 +21,7 @@ PUT /jira
     "aggregatetimeestimate": {"type": "long"},
     "aggregatetimespent": {"type": "long"},
     "labels": {"type":"text"},
-    "resolutiondate": {"type":"keyword"},
+    "resolutiondate": {"type":"keyword", "ignore_malformed": true},
     "epic_link": {"type":"keyword"}
    }
   }
